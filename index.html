@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aloka Maga App Preview</title>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+    }
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+    .verse-box {
+      position: absolute;
+      bottom: 15%;
+      width: 90%;
+      padding: 20px;
+      background: rgba(0,0,0,0.55);
+      color: white;
+      text-align: center;
+      border-radius: 15px;
+      font-size: 20px;
+      font-family: "Sinhala", sans-serif;
+      backdrop-filter: blur(5px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <video id="bgVideo" autoplay muted loop playsinline></video>
+
+  <div class="verse-box" id="verseBox">
+    ⏳ Loading Verse...
+  </div>
+
+<script>
+  const videos = [
+    "https://firebasestorage.googleapis.com/v0/b/aloka-maga-app.firebasestorage.app/o/backgrounds%2Fbg1.mp4?alt=media&token=e7ab0dc9-ee3b-4cf8-9585-f01c893b7f63",
+    "https://firebasestorage.googleapis.com/v0/b/aloka-maga-app.firebasestorage.app/o/backgrounds%2Fbg2.mp4?alt=media&token=e574e518-3762-4ab7-8534-53c657f569eb",
+    "https://firebasestorage.googleapis.com/v0/b/aloka-maga-app.firebasestorage.app/o/backgrounds%2Fbg3.mp4?alt=media&token=a77c7515-3133-4195-a3ff-70a8c2b7db80"
+  ];
+  
+  const verses = [
+    "යහපත කරන්න දකුණු අත දැනගන්නේ නැත.",
+    "ඔබට බිය නොවන්න; මම ඔබ සමඟ සිටිමි.",
+    "දෙවියන්වහන්සේ ඔබට ආශೀර්වාද කරන්ට කමාවෙයි."
+  ];
+
+  function setRandomBackground() {
+    const video = document.getElementById("bgVideo");
+    video.src = videos[Math.floor(Math.random() * videos.length)];
+  }
+
+  function setRandomVerse() {
+    document.getElementById("verseBox").textContent =
+      verses[Math.floor(Math.random() * verses.length)];
+  }
+
+  setRandomBackground();
+  setRandomVerse();
+</script>
+
+</body>
+</html>
